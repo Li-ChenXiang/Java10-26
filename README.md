@@ -20,58 +20,76 @@
 
 4.在Course类中添加课程编号，课程名，上课地点，上课时间以及授课教师五种属性，分别添加set()和get()方法对相应参数赋值，使用toString()方法对输出结果统一格式;
 
-5.在Student类中添加课程属性，其他方法继承父类People，添加setHardDisk(HardDisk h)方法将参数h的值赋值给HD；
+5.在Student类中添加课程属性，其他方法继承父类People的方法；
 
-6.添加show()方法能显示cpu的速度和字节及硬盘的容量和质量；  
+6.在Teacher类中添加课程属性，其他方法继承父类People的方法；  
 
-7.在主类Test的main方法中创建一个CPU对象cpu，将cpu自己的speed设置为2200；创建一个HardDisk对象disk，将disk自己的amount设置为200；创建一个PC对象pc；
+7.在主类test的main方法中实例化Student类，并赋予初始值：(2020322088,"Mary","女","17803260304")；
+  实例化Teacher类，并赋予初始值：(1,"Jhone","男","18832619534")；
+  实例化Course类，并赋予初始值：(2,"Java","综0921","每周一19:00","Jhone")；
 
-8.在主类Test的main方法中用pc调用setCPU(CPU c)方法，调用实参是cpu;调用setHardDisk(HardDisk h)方法，调用时实参是disk；调用show()方法。
+8.在主类test的main方法中模拟学生退课操作，若课程编号为0则提示“该学生未选课或已退课”，否则打印学生信息，选课信息以及授课信息。
 
 ## 三、核心方法
 1.方法一
 ```
-public void setSpeed(int m){
-		this.speed=m;
+//添加父类People有参构造方法
+public People(int id,String name,String sex,String phoneN){
+	this.id=id;
+	this.name=name;
+	this.sex=sex;
+	this.phoneN=phoneN;		
+}
+```
+
+2.方法二
+```
+public  String toString(){
+	return "编号："+id+" "+"姓名："+name+" "+"性别："+sex+" "+"手机号："+phoneN;		
+}
+```
+
+3.方法三
+```
+//添加Course有参构造方法
+public Course(int cid,String cName,String add,String time,String teacher){
+	super();
+	this.cid=cid;
+	this.cName=cName;
+	this.add=add;
+	this.time=time;
+	this.teacher=teacher;
+}
+```
+
+4.方法四
+```
+public String toString(){
+	return "\n"+"学生选课信息："+"\n"+
+	        "课程编号："+cid+" "+
+	        "课程名："+cName+" "+
+		"上课地点："+add+" "+
+		"上课时间："+time+" "+
+		"授课教师："+teacher;
 	}
 ```
 
-2.方法一
+5.方法五
 ```
-public void setPrice(float p){
-		this.price=p;
-	}
-```
-
-3.方法一
-```
-public void setAmount(int m){
-		this.amount=m;
-	}
+//调用父类People有参构造方法
+public Student(int id, String name, String sex, String phonN) {
+	super(id, name, sex, phonN);
+}
 ```
 
-4.方法一
+6.方法六
 ```
-public void setWeight(float w){
-		this.weight=w;
-	}
-```
-
-5.方法一
-```
-public void setCPU(CPU c){
-		this.cpu=c;
-	}
+public String toString(){
+	return "学生信息："+"\n"+super.toString();
+}
 ```
 
-6.方法一
-```
-public void setHardDisk(HardDisk h){
-		this.HD=h;
-	}
-```
-
-7.方法一
+7.方法七
 ```
 public void show(){
 		System.out.println("CPU速度"+cpu.getSpeed());
@@ -81,13 +99,38 @@ public void show(){
 	}
 ```
 
+8.方法八
+```
+//判断学生是否选课或退课
+if(s.getsCourse().cid==0){
+	System.out.println("该学生未选课或已退课!");
+	System.out.println("无学生选课信息！");
+			
+}else{
+	System.out.println(s);
+	System.out.println(t);		
+	System.out.println(c);
+}
+```
+
 ## 四、实验结果
+1.学生选课状态下打印出的结果
 ```
-CPU速度2200
-CPU价钱3000.0
-硬盘容量200
-硬盘厚度26.0
+学生信息：
+编号：2020322088 姓名：Mary 性别：女 手机号：17803260304
+
+授课教师信息：
+编号：1 姓名：Jhone 性别：男 手机号：18832619534
+
+学生选课信息：
+课程编号：2 课程名：Java 上课地点：综0921 上课时间：每周一19:00 授课教师：Jhone
 ```
+2.学生退课或未选课状态下打印出的结果
+```
+该学生未选课或已退课!
+无学生选课信息！
+```
+
 
 ## 五、实验感想
 通过本次实验，让我了解了构造方法的使用，掌握了方法调用时参数的传递，经过老师和同学的帮助顺利的完成了本次实验。
