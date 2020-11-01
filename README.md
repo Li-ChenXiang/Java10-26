@@ -91,16 +91,6 @@ public String toString(){
 
 7.方法七
 ```
-public void show(){
-		System.out.println("CPU速度"+cpu.getSpeed());
-		System.out.println("CPU价钱"+cpu.getPrice());
-		System.out.println("硬盘容量"+HD.getAmount());		
-		System.out.println("硬盘厚度"+HD.getWeight());
-	}
-```
-
-8.方法八
-```
 //判断学生是否选课或退课
 if(s.getsCourse().cid==0){
 	System.out.println("该学生未选课或已退课!");
@@ -133,5 +123,5 @@ if(s.getsCourse().cid==0){
 
 
 ## 五、实验感想
-通过本次实验，让我了解了构造方法的使用，掌握了方法调用时参数的传递，经过老师和同学的帮助顺利的完成了本次实验。
+实验过程中遇到的问题：在主类test中赋予初始值后打印出乱码； 解决方法：在对应的类中添加toString()方法对各个参数的输出结果进行整理； 通过本次实验，掌握了继承的用法，并用构造方法实例化对象，学会了如何使用super。
 
